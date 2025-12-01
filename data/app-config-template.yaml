@@ -1,0 +1,4 @@
+mongo:
+  uri: ""
+  db_name: "defi_agent_db"
+
