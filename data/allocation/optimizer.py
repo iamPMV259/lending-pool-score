@@ -25,7 +25,7 @@ class PortfolioOptimizer:
         self.total_capital = total_capital
         self.max_weight = max_weight_per_pool
 
-    def optimizer(self, vault_type: Literal["Conservative", "Balanced", "Aggressive"], pools: list[PoolCandidate]) -> list[AllocationResult]:
+    def optimize(self, vault_type: Literal["Conservative", "Balanced", "Aggressive"], pools: list[PoolCandidate]) -> list[AllocationResult]:
         
         candidates = self._filter_pools(vault_type, pools)
 
