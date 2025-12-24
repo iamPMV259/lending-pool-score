@@ -7,7 +7,6 @@ from hooks.error import FailedExternalAPI, GenericServiceError
 from mongo.schemas import (
     APYStatistics,
     PoolCharts,
-    PoolsMetadata,
     PoolsSnapshot120d,
     Predictions,
 )
