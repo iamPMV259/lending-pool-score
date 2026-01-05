@@ -143,6 +143,7 @@ class PoolsSnapshotTestRegression(Document):
     pool_name: str
     window_start_time: datetime
     window_end_time: datetime | None = None
+
     tvl_current: float | None = None
     tvl_mean: float | None = None
     tvl_volatility: float | None = None
@@ -182,6 +183,56 @@ class PoolsSnapshotTrainRegression(Document):
         validate_on_save = True
 
 
+class PoolsSnapshotTrainRegressionV2(Document):
+    id: UUID = Field(default_factory=uuid4)
+    chain: str
+    project: str
+    symbol: str
+    pool_name: str
+    window_start_time: datetime
+    window_end_time: datetime | None = None
+    
+    log_tvl: float          
+    tvl_change_7d: float  
+    tvl_volatility: float
+    max_drawdown: float
+    apy_mean: float
+    apy_std: float
+    chain_score: float
+    token_score: float     
+    
+    # Target (0-10)
+    risk_score: float
+
+    class Settings:
+        name = "pools_snapshot_train_v2"
+        validate_on_save = True
+
+class PoolsSnapshotTestRegressionV2(Document):
+    id: UUID = Field(default_factory=uuid4)
+    chain: str
+    project: str
+    symbol: str
+    pool_name: str
+    window_start_time: datetime
+    window_end_time: datetime | None = None
+    
+    log_tvl: float
+    tvl_change_7d: float
+    tvl_volatility: float
+    max_drawdown: float
+    apy_mean: float
+    apy_std: float
+    chain_score: float
+    token_score: float
+    
+    risk_score: float
+
+    class Settings:
+        name = "pools_snapshot_test_v2"
+        validate_on_save = True
+
+
 
 
 
@@ -193,5 +244,7 @@ DocumentModels = [
     PoolsSnapshotTrainRegression,
     PoolsSnapshotTestRegression,
     PoolsSnapshotAllTime,
-    PoolsSnapshot30dV1
+    PoolsSnapshot30dV1,
+    PoolsSnapshotTrainRegressionV2,
+    PoolsSnapshotTestRegressionV2,
 ]
