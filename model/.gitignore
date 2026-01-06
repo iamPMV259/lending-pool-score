@@ -17,3 +17,6 @@ pyright_check.json
 # Testing files
 test.py
 .venv/
+
+
+*.pkl
